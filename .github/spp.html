@@ -1,0 +1,41 @@
+<!-- Ganti atau tambahkan di bagian konten SPP -->
+<main id="main" class="container section">
+  <h1>Pembayaran SPP</h1>
+  <div class="card qris-card">
+    <p>Metode pembayaran: <strong>QRIS ONLY</strong>. Silakan pindai QR code di bawah menggunakan aplikasi perbankan/dompet digital Anda.</p>
+
+    <div class="qris-wrap">
+      <button class="qris-zoom" aria-label="Perbesar QRIS" onclick="openQrisModal(event)">
+        <img src="images/qris-spp.png" alt="QRIS Pembayaran SPP MTS Manbaul Ulum" class="qris-img" />
+      </button>
+    </div>
+
+    <div class="qris-actions">
+      <a href="images/qris-spp.png" download="qris-mts-manbaul-ulum.png" class="btn-primary download-btn" aria-label="Unduh QRIS untuk pembayaran">Unduh QRIS</a>
+      <p class="small">Simpan bukti pembayaran setelah melakukan transaksi.</p>
+    </div>
+  </div>
+</main>
+
+<!-- Modal zoom sederhana (letakkan sebelum penutup </body>) -->
+<div id="qris-modal" class="qris-modal" aria-hidden="true" role="dialog" aria-label="Perbesar QRIS" onclick="closeQrisModal()">
+  <img id="qris-modal-img" src="" alt="QRIS Pembayaran (perbesar)" />
+</div>
+
+<script>
+// Modal zoom sederhana untuk QRIS
+function openQrisModal(e){
+  e.preventDefault();
+  const src = e.currentTarget.querySelector('img').src;
+  const modal = document.getElementById('qris-modal');
+  const img = document.getElementById('qris-modal-img');
+  img.src = src;
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden','false');
+}
+function closeQrisModal(){
+  const modal = document.getElementById('qris-modal');
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden','true');
+}
+</script>
